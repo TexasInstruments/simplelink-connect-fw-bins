@@ -1,0 +1,144 @@
+diff --git a/examples/nortos/LP_EM_CC2340R5/mcuboot/mcuboot/ticlang/mcuboot_LP_EM_CC2340R5_nortos_ticlang.projectspec b/examples/nortos/LP_EM_CC2340R5/mcuboot/mcuboot/ticlang/mcuboot_LP_EM_CC2340R5_nortos_ticlang.projectspec
+index 012319d..7636ae7 100755
+--- a/examples/nortos/LP_EM_CC2340R5/mcuboot/mcuboot/ticlang/mcuboot_LP_EM_CC2340R5_nortos_ticlang.projectspec
++++ b/examples/nortos/LP_EM_CC2340R5/mcuboot/mcuboot/ticlang/mcuboot_LP_EM_CC2340R5_nortos_ticlang.projectspec
+@@ -12,7 +12,7 @@
+     <project
+         title="mcuboot"
+         name="mcuboot_LP_EM_CC2340R5_nortos_ticlang"
+-        configurations="Debug"
++        configurations="DebugOnChipOAD, DebugOffChipOAD"
+         toolChain="TICLANG"
+         cgtVersion="TICLANG_1.2.1"
+         connection="TIXDS110_Connection.xml"
+@@ -86,6 +86,26 @@
+         "
+         description="Example MCUBoot with on-chip and off-chip support">
+ 
++        <configuration
++            name="DebugOnChipOAD"
++            compilerBuildOptions="
++                -DxTI_BOOT_USE_EXTERNAL_FLASH
++            "
++            postBuildStep="
++                ${CG_TOOL_HEX} -order MS --memwidth=8 --romwidth=8 --intel -o ${ProjName}-onchip.hex ${ProjName};
++            "
++        />
++
++        <configuration
++            name="DebugOffChipOAD"
++            compilerBuildOptions="
++                -DTI_BOOT_USE_EXTERNAL_FLASH
++            "
++            postBuildStep="
++                ${CG_TOOL_HEX} -order MS --memwidth=8 --romwidth=8 --intel -o ${ProjName}-offchip.hex ${ProjName};
++            "
++        />
++
+         <property name="buildProfile" value="release"/>
+         <property name="isHybrid" value="true"/>
+         <file path="../mcuboot.syscfg" openOnCreation="false" excludeFromBuild="false" action="copy">
+diff --git a/examples/rtos/LP_EM_CC2340R5/ble5stack/basic_ble_oad_offchip/freertos/ticlang/basic_ble_oad_offchip_LP_EM_CC2340R5_freertos_ticlang.projectspec b/examples/rtos/LP_EM_CC2340R5/ble5stack/basic_ble_oad_offchip/freertos/ticlang/basic_ble_oad_offchip_LP_EM_CC2340R5_freertos_ticlang.projectspec
+index 60add5a..82e428d 100755
+--- a/examples/rtos/LP_EM_CC2340R5/ble5stack/basic_ble_oad_offchip/freertos/ticlang/basic_ble_oad_offchip_LP_EM_CC2340R5_freertos_ticlang.projectspec
++++ b/examples/rtos/LP_EM_CC2340R5/ble5stack/basic_ble_oad_offchip/freertos/ticlang/basic_ble_oad_offchip_LP_EM_CC2340R5_freertos_ticlang.projectspec
+@@ -116,7 +116,9 @@
+             -llibc.a
+         "
+         postBuildStep="
+-            ${CG_TOOL_ROOT}/bin/tiarmobjcopy ${ProjName}.out --output-target binary ${ProjName}.bin --remove-section=.ccfg; ${COM_TI_SIMPLELINK_LOWPOWER_F3_SDK_INSTALL_DIR}/tools/common/mcuboot/imgtool sign --header-size 0x100 --align 4 --slot-size 0x76000 --version 1.0.0 --pad-header --pad --key ${COM_TI_SIMPLELINK_LOWPOWER_F3_SDK_INSTALL_DIR}/source/third_party/mcuboot/root-ec-p256.pem ${ProjName}.bin ${ProjName}.bin
++            ${CG_TOOL_ROOT}/bin/tiarmobjcopy ${ProjName}.out --output-target binary ${ProjName}.bin --remove-section=.ccfg;
++            ${COM_TI_SIMPLELINK_LOWPOWER_F3_SDK_INSTALL_DIR}/tools/common/mcuboot/imgtool sign --header-size 0x100 --align 4 --slot-size 0x76000 --version 1.0.0 --pad-header --pad --key ${COM_TI_SIMPLELINK_LOWPOWER_F3_SDK_INSTALL_DIR}/source/third_party/mcuboot/root-ec-p256.pem ${ProjName}.bin ${ProjName}-v1.0.0.bin;
++            ${COM_TI_SIMPLELINK_LOWPOWER_F3_SDK_INSTALL_DIR}/tools/common/mcuboot/imgtool sign --header-size 0x100 --align 4 --slot-size 0x76000 --version 2.0.0 --pad-header --pad --key ${COM_TI_SIMPLELINK_LOWPOWER_F3_SDK_INSTALL_DIR}/source/third_party/mcuboot/root-ec-p256.pem ${ProjName}.bin ${ProjName}-v2.0.0.bin
+         "
+         enableSysConfigTool="true"
+         sysConfigBuildOptions="
+diff --git a/examples/rtos/LP_EM_CC2340R5/ble5stack/basic_ble_oad_onchip/freertos/ticlang/basic_ble_oad_onchip_LP_EM_CC2340R5_freertos_ticlang.projectspec b/examples/rtos/LP_EM_CC2340R5/ble5stack/basic_ble_oad_onchip/freertos/ticlang/basic_ble_oad_onchip_LP_EM_CC2340R5_freertos_ticlang.projectspec
+index 630395c..44757b0 100755
+--- a/examples/rtos/LP_EM_CC2340R5/ble5stack/basic_ble_oad_onchip/freertos/ticlang/basic_ble_oad_onchip_LP_EM_CC2340R5_freertos_ticlang.projectspec
++++ b/examples/rtos/LP_EM_CC2340R5/ble5stack/basic_ble_oad_onchip/freertos/ticlang/basic_ble_oad_onchip_LP_EM_CC2340R5_freertos_ticlang.projectspec
+@@ -116,7 +116,9 @@
+             -llibc.a
+         "
+         postBuildStep="
+-            ${CG_TOOL_ROOT}/bin/tiarmobjcopy ${ProjName}.out --output-target binary ${ProjName}.bin --remove-section=.ccfg; ${COM_TI_SIMPLELINK_LOWPOWER_F3_SDK_INSTALL_DIR}/tools/common/mcuboot/imgtool sign --header-size 0x100 --align 4 --slot-size 0x4A000 --version 1.0.0 --pad-header --key ${COM_TI_SIMPLELINK_LOWPOWER_F3_SDK_INSTALL_DIR}/source/third_party/mcuboot/root-ec-p256.pem ${ProjName}.bin ${ProjName}.bin
++            ${CG_TOOL_ROOT}/bin/tiarmobjcopy ${ProjName}.out --output-target binary ${ProjName}.bin --remove-section=.ccfg;
++            ${COM_TI_SIMPLELINK_LOWPOWER_F3_SDK_INSTALL_DIR}/tools/common/mcuboot/imgtool sign --header-size 0x100 --align 4 --slot-size 0x4A000 --version 1.0.0 --pad-header --key ${COM_TI_SIMPLELINK_LOWPOWER_F3_SDK_INSTALL_DIR}/source/third_party/mcuboot/root-ec-p256.pem ${ProjName}.bin ${ProjName}-v1.0.0.bin;
++            ${COM_TI_SIMPLELINK_LOWPOWER_F3_SDK_INSTALL_DIR}/tools/common/mcuboot/imgtool sign --header-size 0x100 --align 4 --slot-size 0x4A000 --version 2.0.0 --pad-header --key ${COM_TI_SIMPLELINK_LOWPOWER_F3_SDK_INSTALL_DIR}/source/third_party/mcuboot/root-ec-p256.pem ${ProjName}.bin ${ProjName}-v2.0.0.bin
+         "
+         enableSysConfigTool="true"
+         sysConfigBuildOptions="
+diff --git a/examples/rtos/LP_EM_CC2340R5/ble5stack/basic_persistent/freertos/ticlang/basic_persistent_LP_EM_CC2340R5_freertos_ticlang.projectspec b/examples/rtos/LP_EM_CC2340R5/ble5stack/basic_persistent/freertos/ticlang/basic_persistent_LP_EM_CC2340R5_freertos_ticlang.projectspec
+index 984daf8..cdd2fb4 100755
+--- a/examples/rtos/LP_EM_CC2340R5/ble5stack/basic_persistent/freertos/ticlang/basic_persistent_LP_EM_CC2340R5_freertos_ticlang.projectspec
++++ b/examples/rtos/LP_EM_CC2340R5/ble5stack/basic_persistent/freertos/ticlang/basic_persistent_LP_EM_CC2340R5_freertos_ticlang.projectspec
+@@ -115,7 +115,8 @@
+             -llibc.a
+         "
+         postBuildStep="
+-            ${CG_TOOL_ROOT}/bin/tiarmobjcopy ${ProjName}.out --output-target binary ${ProjName}.bin --remove-section=.ccfg; ${COM_TI_SIMPLELINK_LOWPOWER_F3_SDK_INSTALL_DIR}/tools/common/mcuboot/imgtool sign --header-size 0x100 --align 4 --slot-size 0x2C000 --version 1.0.0 --pad-header --key ${COM_TI_SIMPLELINK_LOWPOWER_F3_SDK_INSTALL_DIR}/source/third_party/mcuboot/root-ec-p256.pem ${ProjName}.bin ${ProjName}.bin
++            ${CG_TOOL_ROOT}/bin/tiarmobjcopy ${ProjName}.out --output-target binary ${ProjName}.bin --remove-section=.ccfg;
++            ${COM_TI_SIMPLELINK_LOWPOWER_F3_SDK_INSTALL_DIR}/tools/common/mcuboot/imgtool sign --header-size 0x100 --align 4 --slot-size 0x2C000 --version 1.0.0 --pad-header --key ${COM_TI_SIMPLELINK_LOWPOWER_F3_SDK_INSTALL_DIR}/source/third_party/mcuboot/root-ec-p256.pem ${ProjName}.bin ${ProjName}-v1.0.0.bin
+         "
+         enableSysConfigTool="true"
+         sysConfigBuildOptions="
+diff --git a/source/third_party/mcuboot/boot/ti/source/mcuboot_app/flash_map_backend/flash_map_backend.h b/source/third_party/mcuboot/boot/ti/source/mcuboot_app/flash_map_backend/flash_map_backend.h
+index 62d7899..4155f0c 100755
+--- a/source/third_party/mcuboot/boot/ti/source/mcuboot_app/flash_map_backend/flash_map_backend.h
++++ b/source/third_party/mcuboot/boot/ti/source/mcuboot_app/flash_map_backend/flash_map_backend.h
+@@ -67,12 +67,19 @@
+ #elif defined DeviceFamily_CC23X0R5
+     #define BOOTLOADER_BASE_ADDRESS             0x00000000
+     #define BOOT_BOOTLOADER_SIZE                0x00006000
++#ifndef TI_BOOT_USE_EXTERNAL_FLASH
++    #define BOOT_PRIMARY_1_BASE_ADDRESS         0x00032000 // primary slot containing app image
++    #define BOOT_PRIMARY_1_SIZE                 0x0004a000
+ 
+-    #define BOOT_PRIMARY_1_BASE_ADDRESS         0x00006000
+-    #define BOOT_PRIMARY_1_SIZE                 0x0003d000
++    #define BOOT_SECONDARY_1_BASE_ADDRESS       0x00006000 // secondary slot containing persistent image
++    #define BOOT_SECONDARY_1_SIZE               0x0002c000
++#else
++    #define BOOT_PRIMARY_1_BASE_ADDRESS         0x00006000 // primary slot containing app image
++    #define BOOT_PRIMARY_1_SIZE                 0x00076000
+ 
+-    #define BOOT_SECONDARY_1_BASE_ADDRESS       0x00043000
+-    #define BOOT_SECONDARY_1_SIZE               0x0003d000
++    //#define BOOT_SECONDARY_1_BASE_ADDRESS       0x00006000 // secondary slot containing app image in ext flash
++    #define BOOT_SECONDARY_1_SIZE               0x00076000 // (note address is commented as overwitten below)
++#endif
+ #else
+     #if (MCUBOOT_IMAGE_NUMBER == 2)
+         #define BOOTLOADER_BASE_ADDRESS         0x00000800
+diff --git a/source/third_party/mcuboot/boot/ti/source/mcuboot_app/mcuboot_config/mcuboot_config.h b/source/third_party/mcuboot/boot/ti/source/mcuboot_app/mcuboot_config/mcuboot_config.h
+index 5356f08..f0bfa0d 100755
+--- a/source/third_party/mcuboot/boot/ti/source/mcuboot_app/mcuboot_config/mcuboot_config.h
++++ b/source/third_party/mcuboot/boot/ti/source/mcuboot_app/mcuboot_config/mcuboot_config.h
+@@ -61,7 +61,14 @@
+ //#define MCUBOOT_OVERWRITE_ONLY
+ 
+ /* Uncomment to enable the direct-xip code path. */
++//#define MCUBOOT_DIRECT_XIP
++
++// Simple config using TI_BOOT_USE_EXTERNAL_FLASH for on-chip or off-chip oad
++#if defined(TI_BOOT_USE_EXTERNAL_FLASH)
++#define MCUBOOT_OVERWRITE_ONLY
++#else
+ #define MCUBOOT_DIRECT_XIP
++#endif
+ 
+ #if defined(TI_BOOT_USE_EXTERNAL_FLASH) &&  \
+ 	(!defined(MCUBOOT_OVERWRITE_ONLY) || defined(MCUBOOT_DIRECT_XIP))
+diff --git a/source/ti/ble5stack_flash/inc/bcomdef.h b/source/ti/ble5stack_flash/inc/bcomdef.h
+index c981b3b..69e10fe 100755
+--- a/source/ti/ble5stack_flash/inc/bcomdef.h
++++ b/source/ti/ble5stack_flash/inc/bcomdef.h
+@@ -142,7 +142,7 @@ extern "C"
+ 
+ // If L2CAP Connection Oriented Channels are not configured and GATT_QUAL is not defined
+ // then do not configure GATT Service Changed characteristic
+-#if (!defined ( BLE_V41_FEATURES ) || !( BLE_V41_FEATURES & L2CAP_COC_CFG )) && !defined(GATT_QUAL) && defined(OAD_CFG)
++#if (!defined ( BLE_V41_FEATURES ) || !( BLE_V41_FEATURES & L2CAP_COC_CFG )) && !defined(GATT_QUAL) && defined(OAD_CFG) && defined (ALLOW_SERVICES_TO_BE_FIXED)
+   #define GATT_NO_SERVICE_CHANGED  //!<GATT No Service Changed
+ #endif // ! BLE_41_FEATURES || ! L2CAP_COC_CFG
+ 
