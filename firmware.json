@@ -36,13 +36,13 @@
     "imageType" : "mcuboot"
   },
   {
-    "fileName" : "CC1354P10-6/basic_ble_oad_onchip_LP_EM_CC1354P10_6_freertos_ticlang-v2.0.0.bin",
+    "fileName" : "CC1354P10-6/basic_ble_oad_onchip_LP_EM_CC1354P10_6_freertos_ticlang-v1.0.0-v2.0.0.bin",
     "version" : "7.10.00.98.0.0+0",
     "hwType" : "LP_EM_CC1354P10-6",
     "imageType" : "mcuboot"
   },
   {
-    "fileName" : "CC1354P10-6/basic_ble_oad_offchip_LP_EM_CC1354P10_6_freertos_ticlang-v2.0.0.bin",
+    "fileName" : "CC1354P10-6/basic_ble_oad_offchip_LP_EM_CC1354P10_6_freertos_ticlang-v1.0.0-v2.0.0.bin",
     "version" : "7.10.00.98.0.0+0",
     "hwType" : "LP_EM_CC1354P10-6",
     "imageType" : "mcuboot"
