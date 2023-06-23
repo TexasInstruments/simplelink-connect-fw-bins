@@ -8,7 +8,7 @@ Before flashing, ensure that chip on the board was erased.
 CC1354P10-6 (MCUBoot):
 	Onchip OAD:
 		AUTO(0x00)    -> mcuboot_onchip_LP_EM_CC1354P10_6_nortos_ticlang.hex
-		0x6000        -> basic_persistent_LP_EM_CC1354P10_6_freertos_ticlang.bin
+		0x6000        -> basic_persistent_LP_EM_CC1354P10_6_freertos_ticlang-v1.0.0.bin
 		0x30000       -> basic_ble_oad_onchip_LP_EM_CC1354P10_6_freertos_ticlang-v1.0.0.bin
 	Offchip OAD:
 		AUTO(0x00)    -> mcuboot_offchip_LP_EM_CC1354P10_6_nortos_ticlang.hex
