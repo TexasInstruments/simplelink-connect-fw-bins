@@ -1,0 +1,74 @@
+[
+  {
+    "fileName" : "LP_EM_CC2340R5/basic_ble_oad_onchip_LP_EM_CC2340R5_freertos_ticlang-v1.0.0.bin",
+    "version" : "7.10.00.23_1.0.0+0",
+    "hwType" : "LP_EM_CC2340R5",
+    "imageType" : "mcuboot"
+  },
+  {
+    "fileName" : "LP_EM_CC2340R5/basic_ble_oad_onchip_LP_EM_CC2340R5_freertos_ticlang-v2.0.0.bin",
+    "version" : "7.10.00.23_2.0.0+0",
+    "hwType" : "LP_EM_CC2340R5",
+    "imageType" : "mcuboot"
+  },
+  {
+    "fileName" : "LP_EM_CC2340R5/basic_ble_oad_offchip_LP_EM_CC2340R5_freertos_ticlang-v1.0.0.bin",
+    "version" : "7.10.00.23_1.0.0+0",
+    "hwType" : "LP_EM_CC2340R5",
+    "imageType" : "mcuboot"
+  },
+  {
+    "fileName" : "LP_EM_CC2340R5/basic_ble_oad_offchip_LP_EM_CC2340R5_freertos_ticlang-v2.0.0.bin",
+    "version" : "7.10.00.23_2.0.0+0",
+    "hwType" : "LP_EM_CC2340R5",
+    "imageType" : "mcuboot"
+  },
+  {
+    "fileName" : "LP_EM_CC2340R5_PG1/basic_ble_oad_LP_EM_CC2340R5_freertos_ticlang-v2.0.0.bin",
+    "version" : "6.41.00.09_2.0.0+0",
+    "hwType" : "LP_EM_CC2340R5_PG1",
+    "imageType" : "mcuboot"
+  },
+  {
+    "fileName" : "CC1354P10-6/basic_ble_oad_onchip_LP_EM_CC1354P10_6_freertos_ticlang-v2.0.0.bin",
+    "version" : "7.10.00.98.0.0+0",
+    "hwType" : "LP_EM_CC1354P10-6",
+    "imageType" : "mcuboot"
+  },
+  {
+    "fileName" : "CC1354P10-6/basic_ble_oad_offchip_LP_EM_CC1354P10_6_freertos_ticlang-v2.0.0.bin",
+    "version" : "7.10.00.98.0.0+0",
+    "hwType" : "LP_EM_CC1354P10-6",
+    "imageType" : "mcuboot"
+  },
+  {
+    "fileName" : "CC2651P3/simple_peripheral_oad_offchip_LP_CC2651P3_tirtos7_ticlang_oad-v2.0.0.bin",
+    "version" : "7.10.00.98.0.0+0",
+    "hwType" : "CC2651P3",
+    "imageType" : "bim"
+  },
+  {
+    "fileName" : "CC2652R1/simple_peripheral_oad_offchip_CC26X2R1_LAUNCHXL_tirtos7_ticlang_oad-v2.0.0.bin",
+    "version" : "7.10.00.98.0.0+0",
+    "hwType" : "CC2652R1",
+    "imageType" : "bim"
+  },
+  {
+    "fileName" : "CC2652R1/simple_peripheral_oad_onchip_CC26X2R1_LAUNCHXL_tirtos7_ticlang_oad-v2.0.0.bin",
+    "version" : "7.10.00.98.0.0+0",
+    "hwType" : "CC2652R1",
+    "imageType" : "bim"
+  },
+  {
+    "fileName" : "CC2652R7/simple_peripheral_oad_offchip_LP_CC2652R7_tirtos7_ticlang_oad-v2.0.0.bin",
+    "version" : "7.10.00.98.0.0+0",
+    "hwType" : "CC2652R7",
+    "imageType" : "bim"
+  },
+  {
+    "fileName" : "CC2652R7/simple_peripheral_oad_onchip_LP_CC2652R7_tirtos7_ticlang_oad-v2.0.0.bin",
+    "version" : "7.10.00.98.0.0+0",
+    "hwType" : "CC2652R7",
+    "imageType" : "bim"
+  }
+]
