@@ -1,25 +1,37 @@
 [
   {
-    "fileName" : "LP_EM_CC2340R5/basic_ble_oad_onchip_LP_EM_CC2340R5_freertos_ticlang-v1.0.0.bin",
-    "version" : "7.10.00.23_1.0.0+0",
+    "fileName" : "LP_EM_CC2340R5/ble5_basic_ble_oad_dual_image_peripheral_cc2340r5_ticlang_FlashOnly_Release_v1.bin",
+    "version" : "7.40.00.43_1.0.0+0",
     "hwType" : "LP_EM_CC2340R5",
     "imageType" : "mcuboot"
   },
   {
-    "fileName" : "LP_EM_CC2340R5/basic_ble_oad_onchip_LP_EM_CC2340R5_freertos_ticlang-v2.0.0.bin",
-    "version" : "7.10.00.23_2.0.0+0",
+    "fileName" : "LP_EM_CC2340R5/ble5_basic_ble_oad_dual_image_peripheral_cc2340r5_ticlang_FlashOnly_Release_v2.bin",
+    "version" : "7.40.00.43_2.0.0+0",
     "hwType" : "LP_EM_CC2340R5",
     "imageType" : "mcuboot"
   },
   {
-    "fileName" : "LP_EM_CC2340R5/basic_ble_oad_offchip_LP_EM_CC2340R5_freertos_ticlang-v1.0.0.bin",
-    "version" : "7.10.00.23_1.0.0+0",
+    "fileName" : "LP_EM_CC2340R5/ble5_basic_ble_oad_offchip_peripheral_cc2340r5_ticlang_FlashOnly_Release_v1.bin",
+    "version" : "7.40.00.43_1.0.0+0",
     "hwType" : "LP_EM_CC2340R5",
     "imageType" : "mcuboot"
   },
   {
-    "fileName" : "LP_EM_CC2340R5/basic_ble_oad_offchip_LP_EM_CC2340R5_freertos_ticlang-v2.0.0.bin",
-    "version" : "7.10.00.23_2.0.0+0",
+    "fileName" : "LP_EM_CC2340R5/ble5_basic_ble_oad_offchip_peripheral_cc2340r5_ticlang_FlashOnly_Release_v2.bin",
+    "version" : "7.40.00.43_2.0.0+0",
+    "hwType" : "LP_EM_CC2340R5",
+    "imageType" : "mcuboot"
+  },
+  {
+    "fileName" : "LP_EM_CC2340R5/ble5_basic_ble_oad_onchip_peripheral_cc2340r5_ticlang_FlashOnly_Release_v1.bin",
+    "version" : "7.40.00.43_1.0.0+0",
+    "hwType" : "LP_EM_CC2340R5",
+    "imageType" : "mcuboot"
+  },
+  {
+    "fileName" : "LP_EM_CC2340R5/ble5_basic_ble_oad_onchip_peripheral_cc2340r5_ticlang_FlashOnly_Release_v2.bin",
+    "version" : "7.40.00.43_2.0.0+0",
     "hwType" : "LP_EM_CC2340R5",
     "imageType" : "mcuboot"
   },
