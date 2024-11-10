@@ -42,6 +42,18 @@
     "imageType": "mcuboot"
   },
   {
+    "fileName": "CC2745R10Q1/basic_ble_oad_dual_image_LP_EM_CC2745R10_Q1_freertos_ticlang_sb_v2.bin",
+    "version": "Yossi",
+    "hwType": "CC2745R10Q1",
+    "imageType": "secure boot"
+  },
+  {
+    "fileName": "CC2745R10Q1/basic_ble_oad_onchip_LP_EM_CC2745R10_Q1_freertos_ticlang_sb_v2.bin",
+    "version": "Yossi",
+    "hwType": "CC2745R10Q1",
+    "imageType": "secure boot"
+  },
+  {
     "fileName": "CC1354P10-6/chip-LP_EM_CC1354P10_6-lighting-example_header.bin",
     "version": "1.2-1.1-eng",
     "hwType": "LP_EM_CC1354P10-6",
